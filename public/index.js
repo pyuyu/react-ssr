@@ -33039,7 +33039,7 @@ function warning(message) {
 /*!***************************************************************!*\
   !*** ./node_modules/react-router-dom/esm/react-router-dom.js ***!
   \***************************************************************/
-/*! exports provided: MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, __RouterContext, generatePath, matchPath, useHistory, useLocation, useParams, useRouteMatch, withRouter, BrowserRouter, HashRouter, Link, NavLink */
+/*! exports provided: BrowserRouter, HashRouter, Link, NavLink, MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, __RouterContext, generatePath, matchPath, useHistory, useLocation, useParams, useRouteMatch, withRouter */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -39745,6 +39745,17 @@ module.exports = function(originalModule) {
 
 /***/ }),
 
+/***/ "./src/App.css":
+/*!*********************!*\
+  !*** ./src/App.css ***!
+  \*********************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// extracted by mini-css-extract-plugin
+
+/***/ }),
+
 /***/ "./src/client/index.js":
 /*!*****************************!*\
   !*** ./src/client/index.js ***!
@@ -39775,9 +39786,9 @@ var _store = __webpack_require__(/*! ../store */ "./src/store.js");
 
 var _store2 = _interopRequireDefault(_store);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+__webpack_require__(/*! ../App.css */ "./src/App.css");
 
-// import "../App.css";
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var store = (0, _store2.default)(window.REDUX_DATA);
 

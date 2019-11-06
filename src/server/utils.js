@@ -27,7 +27,9 @@ export const render = (store, req, context) => {
         ${ helmetData.title.toString() }
         ${ helmetData.meta.toString() }
         <title>React SSR</title>
+        <link rel="stylesheet" type="text/css" href="./styles.css" />
       </head>
+      
       <body>
         <div id="root">${content}</div>
         <script>

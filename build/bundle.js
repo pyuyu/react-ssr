@@ -597,16 +597,13 @@ app.get('*', function (req, res) {
 
 	var dataRequirements = _routes2.default.filter(function (route) {
 		return (0, _reactRouterDom.matchPath)(req.url, route);
-	}) // filter matching paths
-	.map(function (route) {
+	}).map(function (route) {
 		return route.component;
-	}) // map to components
-	.filter(function (comp) {
+	}).filter(function (comp) {
 		return comp.serverFetch;
-	}) // check if components have data requirement
-	.map(function (comp) {
+	}).map(function (comp) {
 		return store.dispatch(comp.serverFetch());
-	}); // dispatch data requirement
+	});
 
 	Promise.all(dataRequirements).then(function () {
 		res.writeHead(200, { "Content-Type": "text/html" });
@@ -670,7 +667,7 @@ var render = exports.render = function render(store, req, context) {
   var helmetData = _reactHelmet.Helmet.renderStatic();
   var reduxState = store.getState();
 
-  return '\n    <!DOCTYPE html>\n    <html>\n      <head>\n        <meta charset="utf-8">\n        ' + helmetData.title.toString() + '\n        ' + helmetData.meta.toString() + '\n        <title>React SSR</title>\n      </head>\n      <body>\n        <div id="root">' + content + '</div>\n        <script>\n          window.REDUX_DATA = ' + (0, _serializeJavascript2.default)(reduxState, { isJSON: true }) + '\n        </script>\n        <script src="/index.js"></script>\n      </body>\n    </html>\n  ';
+  return '\n    <!DOCTYPE html>\n    <html>\n      <head>\n        <meta charset="utf-8">\n        ' + helmetData.title.toString() + '\n        ' + helmetData.meta.toString() + '\n        <title>React SSR</title>\n        <link rel="stylesheet" type="text/css" href="./styles.css" />\n      </head>\n      \n      <body>\n        <div id="root">' + content + '</div>\n        <script>\n          window.REDUX_DATA = ' + (0, _serializeJavascript2.default)(reduxState, { isJSON: true }) + '\n        </script>\n        <script src="/index.js"></script>\n      </body>\n    </html>\n  ';
 };
 
 /***/ }),

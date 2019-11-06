@@ -13,13 +13,13 @@ app.get('*', function (req, res) {
 	let context = {};
 
 	const dataRequirements =
-	routes.filter( route => matchPath( req.url, route ) ) // filter matching paths
-		.map( route => route.component ) // map to components
-		.filter( comp => comp.serverFetch ) // check if components have data requirement
-		.map( comp => store.dispatch( comp.serverFetch( ) ) ); // dispatch data requirement
+	routes.filter(route => matchPath(req.url, route)) // filter matching paths
+		.map(route => route.component) // map to components
+		.filter(comp => comp.serverFetch) // check if components have data requirement
+		.map(comp => store.dispatch(comp.serverFetch())); // dispatch data requirement
 
-	Promise.all( dataRequirements ).then( ( ) => {
-		res.writeHead( 200, { "Content-Type": "text/html" } );
+	Promise.all(dataRequirements).then(() => {
+		res.writeHead(200, { "Content-Type": "text/html" });
 		const html = render(store, req, context)
 		res.end(html);
 	});

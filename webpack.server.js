@@ -13,17 +13,8 @@ const serverConfig = {
 	},
 	externals: [nodeExternals()],
 	module: {
-		rules: [{
-			test: /\.css?$/,
-			use: ['isomorphic-style-loader', {
-				loader: 'css-loader',
-				options: {
-					importLoaders: 1,
-					modules: true,
-					localIdentName: '[name]_[local]_[hash:base64:5]'
-				}
-			}]
-		},{
+		rules: [
+		{
 			test: /\.(png|jpeg|jpg|gif|svg)?$/,
 			loader: 'url-loader',
 			options: {
